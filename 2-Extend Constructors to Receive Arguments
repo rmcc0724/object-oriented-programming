@@ -1,4 +1,4 @@
-//create a Constructor a function named Dog and a bark function
+//create a Constructor function named Dog and a bark function
 function Dog(name, color) {
   this.name = name,
   this.color = color,
