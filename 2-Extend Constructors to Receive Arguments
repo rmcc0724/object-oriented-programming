@@ -1,0 +1,24 @@
+//create a Constructor a function named Dog and a bark function
+function Dog(name, color) {
+  this.name = name,
+  this.color = color,
+  this.numLegs = 4,
+  this.bark = function() {
+      return "Rough rough";
+  };
+}
+
+//Create a instance of the Dog object into the pet var
+var pet = new Dog('Marley', 'grey');
+console.log(pet.name);
+console.log(pet.color);
+console.log(pet.bark());
+
+//This is a generic function that iterates through an object and displays the value
+function iterate(val) {
+for(var key in val) {
+    console.log(key + " " + val[key]);
+}
+}
+//Call the iterate function
+iterate(pet);
