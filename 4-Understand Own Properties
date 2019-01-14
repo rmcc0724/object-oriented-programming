@@ -46,3 +46,12 @@ for (let property in canary) {
 }
 //Display the new Array
 console.log(ownProps);
+
+//Create an iterate function that goes through the keys of an object and returns the values of each key
+const iterate = val => {
+  for(var key in val) {
+    console.log(val[key])
+  }
+}
+
+console.log(iterate(canary));
