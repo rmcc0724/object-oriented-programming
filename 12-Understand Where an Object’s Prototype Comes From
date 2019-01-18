@@ -1,0 +1,29 @@
+Understand Where an Object’s Prototype Comes From
+
+Just like people inherit genes from their parents, an object inherits its prototype directly from the constructor function that created it. For example, here the Bird constructor creates the duck object:
+
+function Bird(name) {
+  this.name = name;
+}
+
+let duck = new Bird("Donald");
+duck inherits its prototype from the Bird constructor function. You can show this relationship with the isPrototypeOf method:
+
+Bird.prototype.isPrototypeOf(duck);
+// returns true
+
+Use isPrototypeOf to check the prototype of beagle.
+
+//Lets go back to a more basic look at constructor functions and learn about checking for prototypes
+
+//Boring constructor function that has a default prop name
+function Dog(name) {
+  this.name = name;
+}
+
+//Lets create a new instance of the Dog object passing the string Snoopy and assign to the beagle variable
+
+let beagle = new Dog("Snoopy");
+
+//here we are checking to see if the Dog object is a prototype of the beagle variable.
+Dog.prototype.isPrototypeOf(beagle);
