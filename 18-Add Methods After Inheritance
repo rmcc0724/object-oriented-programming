@@ -1,0 +1,48 @@
+/*
+Object Oriented Programming: Add Methods After Inheritance
+A constructor function that inherits its prototype object from a supertype constructor function can still have its own methods in addition to inherited methods.
+
+For example, Bird is a constructor that inherits its prototype from Animal:
+
+function Animal() { }
+Animal.prototype.eat = function() {
+  console.log("nom nom nom");
+};
+function Bird() { }
+Bird.prototype = Object.create(Animal.prototype);
+Bird.prototype.constructor = Bird;
+In addition to what is inherited from Animal, you want to add behavior that is unique to Bird objects. Here, Bird will get a fly() function. Functions are added to Bird's prototype the same way as any constructor function:
+
+Bird.prototype.fly = function() {
+  console.log("I'm flying!");
+};
+Now instances of Bird will have both eat() and fly() methods:
+
+let duck = new Bird();
+duck.eat(); // prints "nom nom nom"
+duck.fly(); // prints "I'm flying!"
+
+Add all necessary code so the Dog object inherits from Animal and the Dog's prototype constructor is set to Dog. Then add a bark() method to the Dog object so that beagle can both eat() and bark(). The bark() method should print "Woof!" to the console.
+*/
+//Here we have the Animal function constructor with the function eat
+function Animal() { }
+Animal.prototype.eat = function() { console.log("nom nom nom"); };
+
+//Here's our Dog constructor
+function Dog() { }
+
+//Let the Dog prototype inherit the Animal Object prototype
+Dog.prototype = Object.create(Animal.prototype);
+
+//Let's create a unique function bark for the dog prototype
+Dog.prototype.bark = function() {};
+
+//Manually reassign the prototype constructor because it naturally inherits thr Animal constructor
+Dog.prototype.constructor = Dog;
+
+//Let's create a new instance of Dog and assign to beagle
+let beagle = new Dog();
+
+//beagle should now be able to call both the inherited and unique method that was created
+beagle.eat(); // Should print "nom nom nom"
+beagle.bark(); // Should print "Woof!"
